@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        check여부 확인
+    </title>
+    <style>
+        span {
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+
+<body id="b">
+    <h3>체크여부 확인해보기</h3>
+    <hr>
+    <input type="checkbox" name="ch" id="ch" onchange="isChecked()">
+    <label for="ch">체크안됌</label>
+    <input type="checkbox" name="ch" id="ch2" onchange="isChecked()">
+    <label for="ch2">체크안됌</label>
+    <input type="checkbox" name="ch" id="ch3" onchange="isChecked()">
+    <label for="ch3">체크안됌</label>
+    <input type="checkbox" name="ch" id="ch4" onchange="isChecked()">
+    <label for="ch4">체크안됌</label>
+    <br>
+    <br>
+    <span id="span">모두 동의 되었습니다.</span>
+</body>
+<script>
+    function isChecked() {
+        var ch = document.getElementsByName("ch");
+        var span = document.getElementById("span");
+        var trueNum = 0;
+        console.log(ch);
+
+        for (var i = 0; i < ch.length; i++) {
+            if (ch[i].checked == true) {
+                ch[i].labels[0].innerText = "체크됌";
+                trueNum++;
+            } else {
+                ch[i].labels[0].innerText = "체크안됌";
+                span.style.visibility = "hidden";
+            }
+        }
+        if (ch.length == trueNum)
+            span.style.visibility = "visible";
+        else
+            span.style.visibility = "hidden";
+        trueNum = 0;
+
+    }
+</script>
+
+</html>
