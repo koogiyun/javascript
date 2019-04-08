@@ -31,24 +31,40 @@
 <script>
     function isChecked() {
         var ch = document.getElementsByName("ch");
-        //var span = document.getElementById("span");
-        var trueNum = 0;
-        console.log(ch);
 
+        //4월 9일 코드
+        var chs = document.querySelectorAll("input[type='checkbox']:checked");
+        console.log(chs.length);
         for (var i = 0; i < ch.length; i++) {
-            if (ch[i].checked == true) {
+            if (ch[i].checked == true)
                 ch[i].labels[0].innerText = "체크됌";
-                trueNum++;
-            } else {
+            else
                 ch[i].labels[0].innerText = "체크안됌";
-                span.style.visibility = "hidden";
-            }
         }
-        if (ch.length == trueNum)
+
+        if (chs.length == ch.length)
             span.style.visibility = "visible";
         else
             span.style.visibility = "hidden";
-        trueNum = 0;
+
+        //4월 4일코드
+        // var trueNum = 0;
+        // console.log(ch);
+
+        // for (var i = 0; i < ch.length; i++) {
+        //     if (ch[i].checked == true) {
+        //         ch[i].labels[0].innerText = "체크됌";
+        //         trueNum++;
+        //     } else {
+        //         ch[i].labels[0].innerText = "체크안됌";
+        //         span.style.visibility = "hidden";
+        //     }
+        // }
+        // if (ch.length == trueNum)
+        //     span.style.visibility = "visible";
+        // else
+        //     span.style.visibility = "hidden";
+        // trueNum = 0;
 
     }
 </script>
