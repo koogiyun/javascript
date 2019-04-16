@@ -16,6 +16,8 @@
 <body id="b">
     <h3>체크여부 확인해보기</h3>
     <hr>
+    <input type="checkbox" name="a-ch" id="all-ch">
+    <label for="all-ch">전체체크</label>
     <input type="checkbox" name="ch" id="ch" onchange="isChecked()">
     <label for="ch">체크안됌</label>
     <input type="checkbox" name="ch" id="ch2" onchange="isChecked()">
@@ -29,9 +31,29 @@
     <span id="span">모두 동의 되었습니다.</span>
 </body>
 <script>
-    function isChecked() {
+
+    var ach = document.querySelector("#all-ch");
+    ach.addEventListener("click", function () {
         var ch = document.getElementsByName("ch");
 
+        if (ach.checked == true) {
+            for (var i = 0; i < ch.length; i++) {
+                if (ch[i].checked == false)
+                    ch[i].checked = true;
+                // else
+                //     ch[i].checked = false;
+            }
+        }
+        if (ach.checked == false) {
+            for (var i = 0; i < ch.length; i++) {
+                if (ch[i].checked == true)
+                    ch[i].checked = false;
+            }
+        }
+    })
+
+    function isChecked() {
+        var ch = document.getElementsByName("ch");
         //4월 9일 코드
         var chs = document.querySelectorAll("input[type='checkbox']:checked");
         console.log(chs.length);
@@ -46,26 +68,6 @@
             span.style.visibility = "visible";
         else
             span.style.visibility = "hidden";
-
-        //4월 4일코드
-        // var trueNum = 0;
-        // console.log(ch);
-
-        // for (var i = 0; i < ch.length; i++) {
-        //     if (ch[i].checked == true) {
-        //         ch[i].labels[0].innerText = "체크됌";
-        //         trueNum++;ㄴ
-        //     } else {
-        //         ch[i].labels[0].innerText = "체크안됌";
-        //         span.style.visibility = "hidden";
-        //     }
-        // }
-        // if (ch.length == trueNum)
-        //     span.style.visibility = "visible";
-        // else
-        //     span.style.visibility = "hidden";
-        // trueNum = 0;
-
     }
 </script>
 
